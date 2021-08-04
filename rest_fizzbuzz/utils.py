@@ -11,6 +11,6 @@ def my_fizzbuzz(int1: int, int2: int, limit: int, string1: str, string2: str):
             response.append(string2)
             continue
         else:
-            response.append(i)
+            response.append(str(i))
 
     return response
