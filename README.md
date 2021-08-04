@@ -17,13 +17,13 @@ Follow these steps before pushing new code :
 - [X] Install DRF
 - [X] Install Pytest
 - [X] Create requirements files (base, tests)
-- [ ] Create basic endpoint
-- [ ] Split code in utils
+- [X] Create basic endpoint
+- [X] Split code in utils
 - [ ] Create basic tests
 - [ ] Create Request Model
-- [ ] create Dockerfile
-- [ ] create docker-compose file
-- [ ] Add postgres
+- [X] create Dockerfile
+- [X] create docker-compose file
+- [X] Add postgres
 - [ ] Create statistics endpoint
 - [ ] Add tests
 - [ ] Polish project
