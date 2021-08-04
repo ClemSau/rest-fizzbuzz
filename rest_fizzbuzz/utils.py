@@ -1,4 +1,7 @@
-def my_fizzbuzz(int1: int, int2: int, limit: int, string1: str, string2: str):
+from typing import List
+
+
+def my_fizzbuzz(int1: int, int2: int, limit: int, string1: str, string2: str) -> List[str]:
     response = []
     for i in range(1, limit + 1):
         if i % int1 == 0 and i % int2 == 0:
