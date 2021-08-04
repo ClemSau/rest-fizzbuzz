@@ -1,9 +1,19 @@
 # rest-fizzbuzz
+
 A modified fizzbuzz rest api server for practice purposes
+
+## Usage
+
+The makefile contains the main commands needed to work with the project
+
+## Contributing
+
+Follow these steps before pushing new code :
+- run the `make qa` command to apply the qa checks
 
 ## Todo
 
-- [ ] Makefile
+- [X] Makefile
 - [X] Install DRF
 - [X] Install Pytest
 - [X] Create requirements files (base, tests)
@@ -16,4 +26,5 @@ A modified fizzbuzz rest api server for practice purposes
 - [ ] Add postgres
 - [ ] Create statistics endpoint
 - [ ] Add tests
-- [ ] Polish
+- [ ] Polish project
+- [ ] Polish README
