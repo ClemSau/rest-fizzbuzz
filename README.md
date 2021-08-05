@@ -19,8 +19,8 @@ Follow these steps before pushing new code :
 - [X] Create requirements files (base, tests)
 - [X] Create basic endpoint
 - [X] Split code in utils
-- [ ] Create basic tests
-- [ ] Create Request Model
+- [X] Create basic tests
+- [X] Create Request Model
 - [X] create Dockerfile
 - [X] create docker-compose file
 - [X] Add postgres

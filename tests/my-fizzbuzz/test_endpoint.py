@@ -1,8 +1,8 @@
 from django.test import Client
-from tests.utils import make_params
-from rest_framework import status
 from django.urls import reverse
-from tests.utils import setup_test_environment
+from rest_framework import status
+
+from tests.utils import make_params, setup_test_environment
 
 setup_test_environment()
 

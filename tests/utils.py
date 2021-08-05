@@ -1,6 +1,8 @@
 def setup_test_environment():
-    import django
     import os
+
+    import django
+
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "rest_fizzbuzz.settings")
     django.setup()
 

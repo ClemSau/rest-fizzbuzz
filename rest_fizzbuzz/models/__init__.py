@@ -1,0 +1,1 @@
+from .fizzbuzzrequest import FizzBuzzRequest
