@@ -1,7 +1,7 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from rest_fizzbuzz.exceptions import QueryParameterMissing
+from rest_fizzbuzz.exceptions import QueryParameterMissing, InvalidQueryParameterValue
 from rest_fizzbuzz.models import FizzBuzzRequest
 from rest_fizzbuzz.utils import my_fizzbuzz
 
@@ -13,8 +13,11 @@ class MyFizzBuzz(APIView):
             raise QueryParameterMissing(parameter)
         if (
             is_integer
-        ):  ## TODO deal with is_integer=True but the given value is not an integer
-            query_param = int(query_param)
+        ):
+            try:
+                query_param = int(query_param)
+            except ValueError:
+                raise InvalidQueryParameterValue(parameter, query_param)
         return query_param
 
     def get(self, request):
@@ -26,8 +29,7 @@ class MyFizzBuzz(APIView):
             "string2": self.get_query_parameter("string2"),
         }
 
-        fizz_buzz_request = FizzBuzzRequest.objects.get_or_create(**queryparams)
-        fizz_buzz_request = FizzBuzzRequest.objects.get(**queryparams)
+        fizz_buzz_request = FizzBuzzRequest.objects.get_or_create(**queryparams)[0]
         fizz_buzz_request.count += 1
         fizz_buzz_request.save()
 
@@ -37,4 +39,17 @@ class MyFizzBuzz(APIView):
 class Statistics(APIView):
     def get(self, request):
         fizz_buzz_request = FizzBuzzRequest.get_most_popular()
-        return Response({"data": fizz_buzz_request.int2})
+        return Response(
+            {
+                "data": {
+                    "count": fizz_buzz_request.count,
+                    "parameters": {
+                        "int1": fizz_buzz_request.int1,
+                        "int2": fizz_buzz_request.int2,
+                        "limit": fizz_buzz_request.limit,
+                        "string1": fizz_buzz_request.string1,
+                        "string2": fizz_buzz_request.string2,
+                    },
+                }
+            }
+        )

@@ -1,1 +1,1 @@
-from .fizzbuzzrequest import FizzBuzzRequest
+from .fizzbuzzrequest import FizzBuzzRequest    # noqa: F401
