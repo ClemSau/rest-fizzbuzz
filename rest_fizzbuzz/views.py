@@ -1,7 +1,7 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from rest_fizzbuzz.exceptions import QueryParameterMissing, InvalidQueryParameterValue
+from rest_fizzbuzz.exceptions import InvalidQueryParameterValue, QueryParameterMissing
 from rest_fizzbuzz.models import FizzBuzzRequest
 from rest_fizzbuzz.utils import my_fizzbuzz
 
@@ -11,11 +11,9 @@ class MyFizzBuzz(APIView):
         query_param = self.request.query_params.get(parameter)
         if not query_param:
             raise QueryParameterMissing(parameter)
-        if (
-            is_integer
-        ):
+        if is_integer:
             try:
-                query_param = int(query_param)
+                return int(query_param)
             except ValueError:
                 raise InvalidQueryParameterValue(parameter, query_param)
         return query_param
