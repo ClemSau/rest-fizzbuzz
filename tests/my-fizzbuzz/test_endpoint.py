@@ -1,12 +1,12 @@
+import pytest
 from django.test import Client
 from django.urls import reverse
 from rest_framework import status
 
-from tests.utils import make_params, setup_test_environment
-
-setup_test_environment()
+from tests.utils import make_params
 
 
+@pytest.mark.django_db
 def test_valid_my_fizzbuzz():
     params = make_params(
         int1=3,
@@ -16,5 +16,6 @@ def test_valid_my_fizzbuzz():
         string2="buzz",
     )
 
-    response = Client().get(reverse("my-fizz-buzz") + "?" + params)
+    client = Client()
+    response = client.get(reverse("my-fizz-buzz") + "?" + params)
     assert response.status_code == status.HTTP_200_OK

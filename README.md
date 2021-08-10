@@ -6,6 +6,12 @@ A modified fizzbuzz rest api server for practice purposes
 
 The makefile contains the main commands needed to work with the project
 
+## Running the tests
+
+While docker-compose is running, run the following command: `docker-compose exec backend pytest`
+
+This will execute all the tests and compute the test coverage of the rest_fizzbuzz module.
+
 ## Contributing
 
 Follow these steps before pushing new code :
@@ -24,7 +30,7 @@ Follow these steps before pushing new code :
 - [X] create Dockerfile
 - [X] create docker-compose file
 - [X] Add postgres
-- [ ] Create statistics endpoint
+- [X] Create statistics endpoint
 - [ ] Add tests
 - [ ] Polish project
 - [ ] Polish README
