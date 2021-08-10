@@ -11,6 +11,9 @@ qa:				## Run the QA checks (isort, black, flake8, mypy)
 	@flake8
 	@mypy -p $(PKG)
 
+test:           ## Run the tests
+    @docker-compose exec backend pytest
+
 run:			## Run the api directly
 	@python manage.py runserver
 
