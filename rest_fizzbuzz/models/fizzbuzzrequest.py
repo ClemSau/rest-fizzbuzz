@@ -5,7 +5,9 @@ class FizzBuzzRequest(models.Model):
     """
     FizzBuzzRequest Model is used to count the number of requests on the my-fizz-buzz endpoint
 
-    One instance is created for each unique combination of arguments
+    One instance is created for each unique combination of
+
+    Each time a request is called in the /my-fizzbuzz endpoint, its count will be increased by 1
     """
 
     count = models.IntegerField(default=0)
@@ -17,4 +19,7 @@ class FizzBuzzRequest(models.Model):
 
     @classmethod
     def get_most_popular(cls):
-        return cls.objects.all().order_by("-count")[0]
+        try:
+            return cls.objects.all().order_by("-count")[0]
+        except IndexError:
+            return None

@@ -37,6 +37,16 @@ class MyFizzBuzz(APIView):
 class Statistics(APIView):
     def get(self, request):
         fizz_buzz_request = FizzBuzzRequest.get_most_popular()
+
+        if not fizz_buzz_request:
+            return Response(
+                {
+                    "data": {
+                        "message": "no request statistics available yet",
+                    }
+                },
+                200,
+            )
         return Response(
             {
                 "data": {
@@ -49,5 +59,6 @@ class Statistics(APIView):
                         "string2": fizz_buzz_request.string2,
                     },
                 }
-            }
+            },
+            200,
         )
