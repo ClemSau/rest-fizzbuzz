@@ -15,7 +15,7 @@ def test_statistics_no_request(client: Client):
 
 
 @pytest.mark.django_db
-def test_valid_statistics(client = Client()):
+def test_valid_statistics(client: Client):
     params = make_params(
         int1=3,
         int2=5,
