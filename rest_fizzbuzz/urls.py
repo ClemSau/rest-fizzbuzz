@@ -19,7 +19,6 @@ from django.urls import path
 from rest_fizzbuzz import views
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
     path("my-fizz-buzz", views.MyFizzBuzz.as_view(), name="my-fizz-buzz"),
     path("statistics", views.Statistics.as_view(), name="statistics"),
 ]
